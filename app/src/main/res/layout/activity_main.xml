@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
     <Button
         android:id="@+id/btnStartService"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="130dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="148dp"
-        android:text="Start Service"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="btnStartService_onClick"/>
+
+        android:onClick="btnStartService_onClick"
+        android:text="Start Service"></Button>
 
     <Button
         android:id="@+id/btnStopService"
@@ -29,4 +28,11 @@
         app:layout_constraintStart_toStartOf="@+id/btnStartService"
         tools:layout_editor_absoluteY="216dp"
         android:onClick="btnStopService_onClick"/>
-</android.support.constraint.ConstraintLayout>
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="500dp"
+        android:layout_height="528dp"
+        android:src="@color/material_grey_300" />
+</LinearLayout>
