@@ -1,84 +1,83 @@
 package ca.centennialcollege.comp304_miniproject.models;
 
 import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.Enumeration;
+import java.util.Hashtable;
 import java.util.List;
 
 public class DataRepository {
 
     private static DataRepository dataRepository;
-    private static List<User> users = new ArrayList<>();
-    private static List<Product> products = new ArrayList<>();
+    private static Dictionary<Integer, Client> clients = new Hashtable<>();
     private static List<Order> orders = new ArrayList<>();
+    private static List<Deliverer> deliverers = new ArrayList<>();
 
     public static void SeedData() {
-        User user1 = new User();
-        user1.setId(1);
-        user1.setName("Eduardo");
-        user1.setRole(1);
-        user1.setAddress("Road Street 999, Toronto, ON");
 
-        users.add(user1);
+        populateClients();
 
-        User user2 = new User();
-        user2.setId(2);
-        user2.setName("Jovane");
-        user2.setRole(2);
-        user1.setAddress("Road Street 888, Toronto, ON");
+        populateOrders();
 
-        users.add(user2);
+//        Product product1 = new Product();
+//        product1.setId(1);
+//        product1.setName("Smartphone");
+//
+//        products.add(product1);
+//
+//        Product product2 = new Product();
+//        product2.setId(2);
+//        product2.setName("Laptop");
+//
+//        products.add(product2);
 
-        User user3 = new User();
-        user3.setId(3);
-        user3.setName("Aesha");
-        user3.setRole(1);
-        user1.setAddress("Road Street 777, Toronto, ON");
-
-        users.add(user3);
-
-        User user4 = new User();
-        user4.setId(4);
-        user4.setName("Ailton");
-        user4.setRole(2);
-        user1.setAddress("Road Street 666, Toronto, ON");
-
-        users.add(user4);
-
-        Product product1 = new Product();
-        product1.setId(1);
-        product1.setName("Smartphone");
-
-        products.add(product1);
-
-        Product product2 = new Product();
-        product2.setId(2);
-        product2.setName("Laptop");
-
-        products.add(product2);
-
-        Order order1 = new Order();
-        order1.setId(1);
-        order1.setNumber(123456);
-        order1.setUser(user3);
-        order1.addProduct(product1);
-        order1.addProduct(product2);
-
-        orders.add(order1);
     }
 
-    public static List<User> getUsers() {
-        return users;
+    private static void populateClients() {
+        Client client = new Client();
+        client.setId(1);
+        client.setName("Eduardo");
+
+        clients.put(client.getId(), client);
+
+        client = new Client();
+        client.setId(2);
+        client.setName("Jovane");
+
+        clients.put(client.getId(), client);
+
+        client = new Client();
+        client.setId(3);
+        client.setName("Aesha");
+
+        clients.put(client.getId(), client);
+
+        client = new Client();
+        client.setId(4);
+        client.setName("Ailton");
+
+        clients.put(client.getId(), client);
     }
 
-    public static void addUser(User user) {
-        users.add(user);
+    private static void populateOrders() {
+        Order order = new Order();
+        order.setId(1);
+        order.setNumber(123456);
+        order.setClient(clients.get(1));
+        order.addProduct(new Product("", 0.0f));
+        order.addProduct(new Product("", 0.0f));
+
+        orders.add(order);
     }
 
-    public static List<Product> getProducts() {
-        return products;
+
+
+    public static Enumeration<Client> getClients() {
+        return clients.elements();
     }
 
-    public static void addProduct(Product product) {
-        products.add(product);
+    public static void addClient(Client client) {
+        clients.put(client.getId(), client);
     }
 
     public static List<Order> getOrders() {
@@ -87,5 +86,9 @@ public class DataRepository {
 
     public static void addOrder(Order order) {
         orders.add(order);
+    }
+
+    public static List<Deliverer> getDeliverers() {
+        return deliverers;
     }
 }
