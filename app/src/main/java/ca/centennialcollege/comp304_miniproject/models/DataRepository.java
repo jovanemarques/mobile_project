@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 
 public class DataRepository {
@@ -61,6 +62,7 @@ public class DataRepository {
 
         orders.put(order.getId(), order);
 
+        order = new Order();
         order.setId(2);
         order.setNumber(234567);
         order.setClient(clients.get(2));
@@ -71,6 +73,7 @@ public class DataRepository {
 
         orders.put(order.getId(), order);
 
+        order = new Order();
         order.setId(3);
         order.setNumber(345875);
         order.setClient(clients.get(3));
@@ -81,6 +84,7 @@ public class DataRepository {
 
         orders.put(order.getId(), order);
 
+        order = new Order();
         order.setId(4);
         order.setNumber(345875);
         order.setClient(clients.get(4));
@@ -101,7 +105,7 @@ public class DataRepository {
         deliverer.setCurrentLat(43.790505f);
         deliverer.setCurrentLng(-79.302339f);
 
-
+        deliverer = new Deliverer();
         deliverer.setId(1);
         deliverer.setName("Jane Smith");
         deliverer.addOrder(orders.get(4));

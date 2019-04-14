@@ -28,6 +28,7 @@ public class OrdersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_orders);
 
         lvwOrders = findViewById(R.id.lstOrders);
+        loadOrders();
     }
 
     @Override

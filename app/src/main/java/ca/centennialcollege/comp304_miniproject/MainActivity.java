@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnMusic_onClick(View view) {
-
         if (hasMusic) {
             stopService(new Intent(getBaseContext(), MusicService.class));
             btnMusic.setImageDrawable(getDrawable(R.drawable.baseline_music_note_black_18dp));
@@ -69,6 +68,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void btnViewOrders_onClick(View view) {
+        Intent intent = new Intent(this, OrdersActivity.class);
+        startActivity(intent);
+    }
+
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         protected Bitmap doInBackground(String... urls) {
             return ExternalAsset.DownloadImage(urls[0]);
@@ -79,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
             img.setImageBitmap(result);
         }
     }
+
+
 }
 
 

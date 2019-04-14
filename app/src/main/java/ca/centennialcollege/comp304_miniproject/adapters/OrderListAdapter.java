@@ -13,6 +13,7 @@ import java.util.List;
 
 import ca.centennialcollege.comp304_miniproject.R;
 import ca.centennialcollege.comp304_miniproject.models.Order;
+import ca.centennialcollege.comp304_miniproject.models.OrderStatus;
 
 public class OrderListAdapter extends ArrayAdapter<Order> {
     Context mContext;
@@ -61,9 +62,17 @@ public class OrderListAdapter extends ArrayAdapter<Order> {
         lastPosition = position;
 
         if (order != null) {
-            viewHolder.txtClientName.setText(order.getClient().getName());
-            viewHolder.txtStatus.setText(order.getStatus().toString());
-            viewHolder.txtReason.setText(order.getStatusReason());
+            viewHolder.txtClientName.setText(mContext.getString(R.string.lst_row_client_name,
+                    order.getClient().getName()));
+            viewHolder.txtStatus.setText(mContext.getString(R.string.lst_row_order_status,
+                    order.getStatus().getDescription()));
+            if (order.getStatus() == OrderStatus.NOT_DELIVERED) {
+                viewHolder.txtReason.setText(mContext.getString(R.string.lst_row_status_reason,
+                        order.getStatusReason()));
+                viewHolder.txtReason.setVisibility(View.VISIBLE);
+            } else {
+                viewHolder.txtReason.setVisibility(View.GONE);
+            }
         }
 
         // Return the completed view to render on screen
