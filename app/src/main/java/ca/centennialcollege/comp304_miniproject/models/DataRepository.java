@@ -27,24 +27,28 @@ public class DataRepository {
         Client client = new Client();
         client.setId(1);
         client.setName("Eduardo");
+        client.setPhoneNumber(6476547989L);
 
         clients.put(client.getId(), client);
 
         client = new Client();
         client.setId(2);
         client.setName("Jovane");
+        client.setPhoneNumber(6478712621L);
 
         clients.put(client.getId(), client);
 
         client = new Client();
         client.setId(3);
         client.setName("Aesha");
+        client.setPhoneNumber(6473947927L);
 
         clients.put(client.getId(), client);
 
         client = new Client();
         client.setId(4);
         client.setName("Ailton");
+        client.setPhoneNumber(6474892794L);
 
         clients.put(client.getId(), client);
     }

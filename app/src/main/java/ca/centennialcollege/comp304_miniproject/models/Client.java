@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Client implements Serializable {
     private int id;
     private String name;
+    private long phoneNumber;
 
     public int getId() {
         return id;
@@ -20,5 +21,13 @@ public class Client implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public long getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(long phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

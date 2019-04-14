@@ -2,6 +2,7 @@ package ca.centennialcollege.comp304_miniproject;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -90,6 +91,7 @@ public class OrderStatusActivity extends AppCompatActivity {
         Order order = DataRepository.getOrder(this.order.getId());
         String message;
 
+
         if (this.order.getStatus() == order.getStatus()) {
             order.setStatus(nextStatus);
             if (nextStatus == OrderStatus.ASSIGNED_TO_DELIVERER) {
@@ -97,6 +99,25 @@ public class OrderStatusActivity extends AppCompatActivity {
                 DataRepository.UpdateDeliverer(develirer.getId(), order);
             }
             message = "Order status successfully updated!";
+
+            StringBuilder sb = new StringBuilder();
+            sb.append("Hello, ");
+            sb.append(order.getClient().getName());
+            sb.append(", \nYour order number ");
+            sb.append(order.getNumber());
+            sb.append(" was ");
+            switch (order.getStatus()) {
+                case ASSIGNED_TO_DELIVERER:
+                    sb.append("assigned to a deliverer. We will notify when it is out for delivery.");
+                    break;
+
+                case IN_TRANSIT:
+                    sb.append("out for delivery. It will be delivered today.");
+                    break;
+
+            }
+
+            sendSMSUpdateStatus(order, sb.toString());
         } else {
             message = "This order was changed by other user!";
         }
@@ -109,5 +130,15 @@ public class OrderStatusActivity extends AppCompatActivity {
         Intent mapActivity = new Intent(getApplicationContext(), MapsActivity.class);
         mapActivity.putExtra("order", order);
         startActivity(mapActivity);
+    }
+
+    private void sendSMSUpdateStatus(Order order, String message) {
+        Uri uri = Uri.parse("smsto:" + order.getClient().getPhoneNumber());
+
+        // Create an intent and open it
+        Intent i = new Intent(android.content.Intent.ACTION_SENDTO,uri);
+        i.putExtra("sms_body", message);
+        startActivity(i);
+
     }
 }
