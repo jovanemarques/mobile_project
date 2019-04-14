@@ -6,27 +6,56 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnStartService"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="130dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="148dp"
-        android:text="Start Service"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="203dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:onClick="btnStartService_onClick"/>
+        app:srcCompat="@android:color/darker_gray" />
+
+    <Button
+        android:id="@+id/btnStartService"
+        style="@android:style/Widget.Material.Button.Colored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="25dp"
+        android:onClick="btnStartService_onClick"
+        android:text="@string/start_service"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMyOrders" />
 
     <Button
         android:id="@+id/btnStopService"
-        android:layout_width="130dp"
+        style="@android:style/Widget.Material.Button.Colored"
+        android:layout_width="0dp"
         android:layout_height="47dp"
-        android:layout_marginStart="8dp"
-        android:text="Stop Service"
-        app:layout_constraintEnd_toEndOf="@+id/btnStartService"
-        app:layout_constraintStart_toStartOf="@+id/btnStartService"
-        tools:layout_editor_absoluteY="216dp"
-        android:onClick="btnStopService_onClick"/>
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="25dp"
+        android:onClick="btnStopService_onClick"
+        android:text="@string/stop_service"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStartService" />
+
+    <Button
+        android:id="@+id/btnMyOrders"
+        style="@android:style/Widget.Material.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:text="@string/my_orders"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 </android.support.constraint.ConstraintLayout>

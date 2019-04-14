@@ -1,9 +1,10 @@
 package ca.centennialcollege.comp304_miniproject.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Order {
+public class Order implements Serializable {
     private int id;
     private int number;
     private Client user;
