@@ -55,4 +55,9 @@ public class Deliverer {
     public void setCurrentLng(float currentLng) {
         this.currentLng = currentLng;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

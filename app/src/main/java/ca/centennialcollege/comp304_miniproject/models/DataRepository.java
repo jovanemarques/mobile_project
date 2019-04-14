@@ -105,12 +105,16 @@ public class DataRepository {
         deliverer.setCurrentLat(43.790505f);
         deliverer.setCurrentLng(-79.302339f);
 
+        deliverers.put(deliverer.getId(), deliverer);
+
         deliverer = new Deliverer();
-        deliverer.setId(1);
+        deliverer.setId(2);
         deliverer.setName("Jane Smith");
         deliverer.addOrder(orders.get(4));
         deliverer.setCurrentLat(43.776807f);
         deliverer.setCurrentLng(-79.277744f);
+
+        deliverers.put(deliverer.getId(), deliverer);
     }
 
     public static Enumeration<Client> getClients() {
@@ -131,5 +135,28 @@ public class DataRepository {
 
     public static Enumeration<Deliverer> getDeliverers() {
         return deliverers.elements();
+    }
+
+    public static Order getOrder(int orderId) {
+        return orders.get(orderId);
+    }
+
+    public static void UpdateDeliverer(int delivererId, Order order) {
+
+        Enumeration<Deliverer> delivs = deliverers.elements();
+        while (delivs.hasMoreElements()) {
+            Deliverer item = delivs.nextElement();
+
+            if (item.getOrdersAssigned().contains(order)) {
+                if (item.getId() == delivererId) {
+                    return;
+                } else {
+                    item.getOrdersAssigned().remove(order);
+                }
+            }
+        }
+
+        Deliverer item = deliverers.get(delivererId);
+        item.addOrder(order);
     }
 }
