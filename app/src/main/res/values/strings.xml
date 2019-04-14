@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">COMP304_MiniProject</string>
+    <string name="app_name">COMP304 - MiniProject</string>
+
+    <string name="main_button_orders">View orders</string>
+    <string name="main_button_deliverers">View deliverers</string>
+    <string name="orders_title_text">Orders Available</string>
 </resources>

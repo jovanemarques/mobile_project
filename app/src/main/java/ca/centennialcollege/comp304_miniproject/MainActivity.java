@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -12,7 +13,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.content.Intent;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ToggleButton;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,8 +28,9 @@ import ca.centennialcollege.comp304_miniproject.services.MusicService;
 
 public class MainActivity extends AppCompatActivity {
 
+    ImageButton btnMusic;
 
-    ImageView img;
+    boolean hasMusic = false;
 
     final private int REQUEST_INTERNET = 123;
     @Override
@@ -44,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
                     REQUEST_INTERNET);
 
         } else {
-
-
             // for text
             // new DownloadTextTask().execute("http://jfdimarzio.com/test.htm");
             //for image
@@ -54,14 +56,24 @@ public class MainActivity extends AppCompatActivity {
             //new AccessWebServiceTask().execute("Logistics");
         }
 
+        btnMusic = findViewById(R.id.btnMusic);
+        btnMusic.setImageDrawable(getDrawable(R.drawable.baseline_music_off_black_18dp));
+        btnMusic.setBackgroundColor(Color.GREEN);
     }
 
-    public void btnStartService_onClick(View view) {
-        startService(new Intent(getBaseContext(), MusicService.class));
-    }
+    public void btnMusic_onClick(View view) {
 
-    public void btnStopService_onClick(View view) {
-        stopService(new Intent(getBaseContext(), MusicService.class));
+        if (hasMusic) {
+            stopService(new Intent(getBaseContext(), MusicService.class));
+            btnMusic.setImageDrawable(getDrawable(R.drawable.baseline_music_note_black_18dp));
+            btnMusic.setBackgroundColor(Color.GREEN);
+            hasMusic = false;
+        } else {
+            startService(new Intent(getBaseContext(), MusicService.class));
+            btnMusic.setImageDrawable(getDrawable(R.drawable.baseline_music_off_black_18dp));
+            btnMusic.setBackgroundColor(Color.RED);
+            hasMusic = true;
+        }
     }
 
     private InputStream OpenHttpConnection(String urlString) throws IOException {
@@ -110,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         protected void onPostExecute(Bitmap result) {
-            ImageView img = (ImageView) findViewById(R.id.imageView);
+            ImageView img = (ImageView) findViewById(R.id.imgImage);
             img.setImageBitmap(result);
         }
     }

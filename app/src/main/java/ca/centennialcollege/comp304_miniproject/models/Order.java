@@ -28,7 +28,7 @@ public class Order {
         this.id = id;
     }
 
-    public Client getUser() {
+    public Client getClient() {
         return user;
     }
 

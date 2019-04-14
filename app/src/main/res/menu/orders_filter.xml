@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/order_filter_received"
+        android:title="Show Received"
+        android:orderInCategory="1"
+        android:checkable="true"
+        android:checked="true" />
+    <item android:id="@+id/order_filter_assigned"
+        android:title="Show Deliverer Assigned"
+        android:orderInCategory="1"
+        android:checkable="true"
+        android:checked="true" />
+    <item android:id="@+id/order_filter_transit"
+        android:title="Show In Transit"
+        android:orderInCategory="1"
+        android:checkable="true"
+        android:checked="true" />
+    <item android:id="@+id/order_filter_delivered"
+        android:title="Show Delivered"
+        android:orderInCategory="1"
+        android:checkable="true"
+        android:checked="false" />
+    <item android:id="@+id/order_filter_not_delivered"
+        android:title="Show Not Delivered"
+        android:orderInCategory="1"
+        android:checkable="true"
+        android:checked="true" />
+</menu>
