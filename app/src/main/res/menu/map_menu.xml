@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/map_terrain"
+        android:icon="@drawable/icon_terrain"
+        android:title="@string/menu_terrain"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/map_satellite"
+        android:icon="@drawable/icon_satellite"
+        android:title="@string/menu_satellite"
+        app:showAsAction="always" />
+</menu>
