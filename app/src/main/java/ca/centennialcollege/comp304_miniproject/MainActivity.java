@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         btnMusic = findViewById(R.id.btnMusic);
-        btnMusic.setImageDrawable(getDrawable(R.drawable.baseline_music_off_black_18dp));
+        btnMusic.setImageDrawable(getDrawable(R.drawable.baseline_music_note_black_18dp));
         btnMusic.setBackgroundColor(Color.GREEN);
     }
 
