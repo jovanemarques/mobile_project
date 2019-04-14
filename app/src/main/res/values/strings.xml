@@ -13,4 +13,7 @@
     <string name="lst_row_client_name">Client name: %s</string>
     <string name="lst_row_order_status">Order status: %s</string>
     <string name="lst_row_status_reason">Reason: %s</string>
+
+    <string name="menu_terrain">Terrain</string>
+    <string name="menu_satellite">Satellite</string>
 </resources>

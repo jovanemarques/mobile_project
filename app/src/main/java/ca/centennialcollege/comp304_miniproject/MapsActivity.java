@@ -3,6 +3,10 @@ package ca.centennialcollege.comp304_miniproject;
 import android.os.LocaleList;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -14,7 +18,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import ca.centennialcollege.comp304_miniproject.models.Order;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     Order order;
@@ -48,5 +52,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .snippet("Your order is in transit.")
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.delivery_truck)));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 12));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.map_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.map_terrain:
+                mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+                return true;
+            case R.id.map_satellite:
+                mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
