@@ -1,14 +1,28 @@
 package ca.centennialcollege.comp304_miniproject.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Deliverer {
+    private int id;
     private String name;
 
     private List<Order> ordersAssigned;
 
     private float currentLat;
     private float currentLng;
+
+    public Deliverer() {
+        ordersAssigned = new ArrayList<>();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -22,8 +36,8 @@ public class Deliverer {
         return ordersAssigned;
     }
 
-    public void setOrdersAssigned(List<Order> ordersAssigned) {
-        this.ordersAssigned = ordersAssigned;
+    public void addOrder(Order order) {
+        this.ordersAssigned.add(order);
     }
 
     public float getCurrentLat() {
