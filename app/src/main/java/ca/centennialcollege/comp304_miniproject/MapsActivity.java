@@ -46,11 +46,20 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         // 2019 and Java doesn't have a null operator.
         location = order != null ? new LatLng(order.getDeliveryAddress().getLatitude(), order.getDeliveryAddress().getLongitude()) : new LatLng(43.767840, -79.270550);
 
-        mMap.addMarker(new MarkerOptions()
-                .position(location)
-                .title("My Package!")
-                .snippet("Your order is in transit.")
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.delivery_truck)));
+        if (order != null) {
+            mMap.addMarker(new MarkerOptions()
+                    .position(location)
+                    .title("Order number: " + order.getNumber())
+                    .snippet("Almost there, " + order.getClient().getName() + "!")
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.delivery_truck)));
+        } else {
+            mMap.addMarker(new MarkerOptions()
+                    .position(location)
+                    .title("My Package!")
+                    .snippet("Almost there!")
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.delivery_truck)));
+        }
+
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 12));
     }
 
