@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnViewOrders_onClick(View view) {
-        Intent intent = new Intent(this, OrdersActivity.class);
+        Intent intent = new Intent(this.getBaseContext(), OrdersActivity.class);
         startActivity(intent);
     }
 

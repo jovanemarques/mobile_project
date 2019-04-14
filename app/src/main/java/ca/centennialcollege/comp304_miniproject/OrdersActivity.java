@@ -1,5 +1,6 @@
 package ca.centennialcollege.comp304_miniproject;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -122,9 +123,14 @@ public class OrdersActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
+    protected void onRestart() {
         loadOrders();
-        super.onResume();
+        super.onRestart();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
 }

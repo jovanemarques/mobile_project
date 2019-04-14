@@ -79,24 +79,37 @@
         app:layout_constraintStart_toStartOf="@+id/tvwClientName"
         app:layout_constraintTop_toTopOf="@+id/lblAddress" />
 
+    <Button
+        android:id="@+id/btnViewMap"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="btnViewMap_onClick"
+        android:text="@string/order_status_viewmap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvwAddress" />
+
     <TextView
         android:id="@+id/lblDeliverer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/order_status_deliverer"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvwAddress" />
+        app:layout_constraintBottom_toTopOf="@+id/btnUpdateOrder"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
         android:id="@+id/spnDeliverer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/tvwAddress"
         app:layout_constraintTop_toTopOf="@+id/lblDeliverer" />
 

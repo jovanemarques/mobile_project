@@ -1,6 +1,8 @@
 package ca.centennialcollege.comp304_miniproject;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,9 +29,28 @@ public class OrderStatusActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_status);
+        SharedPreferences preferences = getSharedPreferences("OrderStatusActivity", MODE_PRIVATE);
 
         Intent intent = getIntent();
-        order = (Order) intent.getSerializableExtra("Order");
+        if (intent.hasExtra("Order")) {
+            order = (Order) intent.getSerializableExtra("Order");
+
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putInt("OrderId", order.getId());
+            editor.commit();
+        } else {
+            int orderId = preferences.getInt("OrderId", -1);
+            order = DataRepository.getOrder(orderId);
+            if (order == null) {
+                finish();
+            }
+        }
+
+        if (savedInstanceState != null) {
+            if (savedInstanceState.containsKey("OrderStatus_OrderId")) {
+                order = DataRepository.getOrder(savedInstanceState.getInt("OrderStatus_OrderId"));
+            }
+        }
 
         TextView tvwClient = findViewById(R.id.tvwClientName);
         tvwClient.setText(order.getClient().getName());
@@ -90,4 +111,9 @@ public class OrderStatusActivity extends AppCompatActivity {
         finish();
     }
 
+    public void btnViewMap_onClick(View v) {
+        Intent mapActivity = new Intent(getApplicationContext(), MapsActivity.class);
+        mapActivity.putExtra("order", order);
+        startActivity(mapActivity);
+    }
 }
