@@ -1,15 +1,15 @@
 package ca.centennialcollege.comp304_miniproject.models;
 
 public class Product {
-    private int id;
     private String name;
+    private float price;
 
-    public int getId() {
-        return id;
+    public Product() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Product(String name, float price) {
+        this.name = name;
+        this.price = price;
     }
 
     public String getName() {
@@ -18,5 +18,13 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
     }
 }
