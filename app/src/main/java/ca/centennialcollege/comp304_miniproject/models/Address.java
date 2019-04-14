@@ -10,6 +10,21 @@ public class Address {
     private float latitude;
     private float longitude;
 
+    public Address() {
+    }
+
+    public Address(int streetNumber, String streetName, String aptSuiteUnit, String city,
+                   String province, String postalCode, float latitude, float longitude) {
+        this.streetNumber = streetNumber;
+        this.streetName = streetName;
+        this.aptSuiteUnit = aptSuiteUnit;
+        this.city = city;
+        this.province = province;
+        this.postalCode = postalCode;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
     public int getStreetNumber() {
         return streetNumber;
     }
