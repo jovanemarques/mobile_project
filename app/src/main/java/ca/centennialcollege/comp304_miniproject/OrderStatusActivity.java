@@ -46,12 +46,6 @@ public class OrderStatusActivity extends AppCompatActivity {
             }
         }
 
-        if (savedInstanceState != null) {
-            if (savedInstanceState.containsKey("OrderStatus_OrderId")) {
-                order = DataRepository.getOrder(savedInstanceState.getInt("OrderStatus_OrderId"));
-            }
-        }
-
         TextView tvwClient = findViewById(R.id.tvwClientName);
         tvwClient.setText(order.getClient().getName());
 
