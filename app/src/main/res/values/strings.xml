@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">COMP304 - MiniProject</string>
+    <string name="app_name">Delivery System</string>
 
     <string name="title_activity_maps">Map</string>
     <string name="my_orders">My Orders</string>

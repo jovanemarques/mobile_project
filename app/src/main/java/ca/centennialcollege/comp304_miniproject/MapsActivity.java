@@ -44,8 +44,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         LatLng location;
 
         // 2019 and Java doesn't have a null operator.
-        // TODO: include LatLng propertie in the order - I could do that, but it would conflict with Ailton's progress.
-        location = order != null ? new LatLng(-34, 151) : new LatLng(43.767840, -79.270550);
+        location = order != null ? new LatLng(order.getDeliveryAddress().getLatitude(), order.getDeliveryAddress().getLongitude()) : new LatLng(43.767840, -79.270550);
 
         mMap.addMarker(new MarkerOptions()
                 .position(location)
