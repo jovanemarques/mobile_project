@@ -1,6 +1,8 @@
 package ca.centennialcollege.comp304_miniproject.models;
 
-public class Client {
+import java.io.Serializable;
+
+public class Client implements Serializable {
     private int id;
     private String name;
 

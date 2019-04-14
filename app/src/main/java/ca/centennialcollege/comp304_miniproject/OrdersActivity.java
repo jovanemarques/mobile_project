@@ -1,5 +1,6 @@
 package ca.centennialcollege.comp304_miniproject;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -66,7 +67,10 @@ public class OrdersActivity extends AppCompatActivity {
         lvwOrders.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //openNextActivity(bookingItems.get(position));
+                Order order = (Order) parent.getItemAtPosition(position);
+                Intent mapActivity = new Intent(getApplicationContext(), MapsActivity.class);
+                mapActivity.putExtra("order", order);
+                startActivity(mapActivity);
             }
         });
     }

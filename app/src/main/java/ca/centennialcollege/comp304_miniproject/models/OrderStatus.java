@@ -1,6 +1,8 @@
 package ca.centennialcollege.comp304_miniproject.models;
 
-public enum OrderStatus {
+import java.io.Serializable;
+
+public enum OrderStatus implements Serializable {
     RECEIVED,
     ASSIGNED_TO_DELIVERER,
     IN_TRANSIT,
