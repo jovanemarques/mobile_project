@@ -10,7 +10,15 @@
     <string name="main_button_deliverers">View deliverers</string>
     <string name="orders_title_text">Orders Available</string>
 
-    <string name="lst_row_client_name">Client name: %s</string>
+    <string name="lst_row_client_name">Client: %s</string>
     <string name="lst_row_order_status">Order status: %s</string>
     <string name="lst_row_status_reason">Reason: %s</string>
+
+    <string name="order_status_title">Update Order Status</string>
+    <string name="order_status_client">Client name:</string>
+    <string name="order_status_status">Current status:</string>
+    <string name="order_status_address">Address:</string>
+    <string name="order_status_deliverer">Deliverer:</string>
+    <string name="order_status_btn_assign">Assign this deliverer</string>
+    <string name="order_status_btn_transit">Mark as in transit</string>
 </resources>

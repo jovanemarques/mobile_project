@@ -1,6 +1,8 @@
 package ca.centennialcollege.comp304_miniproject.models;
 
-public class Address {
+import java.io.Serializable;
+
+public class Address implements Serializable {
     private int streetNumber;
     private String streetName;
     private String aptSuiteUnit;
@@ -87,5 +89,26 @@ public class Address {
 
     public void setLongitude(float longitude) {
         this.longitude = longitude;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(streetNumber);
+        sb.append(" ");
+        sb.append(streetName);
+        sb.append("\n");
+        if (!aptSuiteUnit.isEmpty()) {
+            sb.append(aptSuiteUnit);
+            sb.append("\n");
+        }
+        sb.append(city);
+        sb.append(", ");
+        sb.append(province);
+        sb.append(" - ");
+        sb.append(postalCode);
+
+        return sb.toString();
     }
 }

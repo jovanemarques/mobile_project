@@ -42,10 +42,13 @@ public class MainActivity extends AppCompatActivity {
         // Initial data
         DataRepository.SeedData();
 
-        // Verify permission
+        // Verify permission and ask for it
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.INTERNET}, REQUEST_INTERNET);
-        } else {
+        }
+
+        // If it has granted, load the image
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET) == PackageManager.PERMISSION_GRANTED) {
             new DownloadImageTask().execute("https://www.bdpinternational.com/uploads/attachments/cj8nd0rnt003ks6qpbpxxru4a-port-cover-image.0.218.4288.2412.max.jpg");
         }
 
@@ -83,8 +86,6 @@ public class MainActivity extends AppCompatActivity {
             img.setImageBitmap(result);
         }
     }
-
-
 }
 
 
